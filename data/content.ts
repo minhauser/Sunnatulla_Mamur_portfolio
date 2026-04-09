@@ -26,35 +26,41 @@ export const projects: Project[] = [
     id: "vlp16",
     title: "Velodyne Lidar VLP-16 Research",
     description: {
-      en: "Research, analysis, and application of the Velodyne VLP-16 Lidar system.",
-      ko: "Velodyne VLP-16 LiDAR 시스템의 연구, 분석 및 응용 프로젝트입니다."
+      en: "VLP-16 LiDAR sensor research and experiments.\nPoint cloud analysis and visualization pipeline.\nApplications for robotics perception.",
+      ko: "VLP-16 LiDAR 센서 연구 및 실험.\n포인트 클라우드 분석 및 시각화 파이프라인.\n로봇 인지(Perception) 적용."
     },
     href: "https://blog.naver.com/sunnatulla_mamur",
-    hrefLabel: { en: "Read more on my blog", ko: "블로그에서 더 보기" }
+    hrefLabel: { en: "Read more in Naver Blog", ko: "네이버 블로그에서 더 보기" }
   },
   {
     id: "care-link",
     title: "Care Link (IoT Elderly Care System)",
     description: {
-      en: "An IoT-based elderly care system using wearables to monitor heart rate, temperature, and fall detection in real time, with LSTM/CNN anomaly detection and GPS SOS tracking.",
-      ko: "웨어러블 기기로 심박수, 체온, 낙상 여부를 실시간 모니터링하고 LSTM/CNN 이상 감지 및 GPS 기반 긴급 위치 추적/SOS를 제공하는 IoT 노인 돌봄 시스템입니다."
-    }
+      en: "Wearable-based elderly care monitoring.\nReal-time vitals & fall detection with anomaly detection.\nGPS SOS tracking and caregiver dashboard.",
+      ko: "웨어러블 기반 노인 돌봄 모니터링.\n실시간 생체신호·낙상 감지 및 이상 탐지.\nGPS SOS 추적과 보호자 대시보드."
+    },
+    href: "/projects/CareLink.pptx",
+    hrefLabel: { en: "Read more", ko: "자세히 보기" }
   },
   {
     id: "sch-bus",
     title: "SCH Bus (Campus Shuttle Bus System)",
     description: {
-      en: "A Raspberry Pi-based smart shuttle system with ultrasonic passenger counting and GPS modules, predicting seat availability and real-time location via Mobius server.",
-      ko: "Raspberry Pi, 초음파 센서, GPS 모듈을 활용해 승하차 인원과 실시간 위치를 추적하고 Mobius 서버 기반 좌석 가용성을 예측하는 스마트 셔틀 시스템입니다."
-    }
+      en: "Smart campus shuttle tracking system.\nUltrasonic passenger counting + GPS location.\nSeat availability prediction via Mobius/oneM2M.",
+      ko: "스마트 캠퍼스 셔틀 추적 시스템.\n초음파 승객 카운팅 + GPS 위치 추적.\nMobius/oneM2M 기반 좌석 가용성 예측."
+    },
+    href: "/projects/SCH Bus.pdf",
+    hrefLabel: { en: "Read more", ko: "자세히 보기" }
   },
   {
     id: "eduble",
     title: 'Eduble (Braille Learning Device)',
     description: {
-      en: 'An affordable smart Braille learning device with a 35-cell refreshable electromagnet display, 5-cell latching-switch input, ESP32 control, Bluetooth app, voice output, and reading/writing training.',
-      ko: "35셀 점자 출력(전자석), 5셀 입력(래칭 스위치), ESP32 제어, 블루투스 앱, 음성 출력과 읽기/쓰기 학습 기능을 제공하는 합리적인 가격의 스마트 점자 학습 기기입니다."
-    }
+      en: "Affordable smart Braille learning device.\n35-cell refreshable display + 5-cell input.\nBluetooth app, voice output, and training modes.",
+      ko: "합리적인 가격의 스마트 점자 학습 기기.\n35셀 점자 출력 + 5셀 입력 인터페이스.\n블루투스 앱, 음성 출력, 학습 모드 제공."
+    },
+    href: "/projects/Eduble.pdf",
+    hrefLabel: { en: "Read more", ko: "자세히 보기" }
   },
   {
     id: "telegram-bot",

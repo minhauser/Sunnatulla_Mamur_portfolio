@@ -520,30 +520,18 @@ export default function Home() {
               className="glass-card rounded-3xl p-6"
             >
               <h3 className="text-xl font-semibold">{project.title}</h3>
-              <p className="mt-4 min-h-[4.5rem] text-sm leading-relaxed text-muted">
+              <p className="mt-4 min-h-[4.5rem] whitespace-pre-line text-sm leading-relaxed text-muted">
                 {project.description[locale]}
               </p>
-              {project.id !== "telegram-bot" ? (
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href="#"
-                    className="inline-flex items-center rounded-full bg-sky-400 px-4 py-2 text-sm text-slate-950 transition-colors hover:bg-sky-300"
-                  >
-                    {locale === "ko" ? "영어로 더 읽기" : "Read more in English"}
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center rounded-full bg-red-500 px-4 py-2 text-sm text-white transition-colors hover:bg-red-400"
-                  >
-                    {locale === "ko" ? "한국어로 더 읽기" : "Read more in Korean"}
-                  </a>
-                </div>
-              ) : (
-                project.href && (
-                  <a href={project.href} target="_blank" rel="noreferrer" className="mt-6 inline-block text-sm text-accent hover:underline">
-                    {project.hrefLabel?.[locale]}
-                  </a>
-                )
+              {project.href && (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center rounded-full bg-sky-400 px-4 py-2 text-sm text-slate-950 transition-colors hover:bg-sky-300"
+                >
+                  {project.hrefLabel?.[locale] ?? (locale === "ko" ? "자세히 보기" : "Read more")}
+                </a>
               )}
             </motion.article>
           ))}
@@ -576,10 +564,10 @@ export default function Home() {
           {t.achievements}
         </motion.h2>
         <p className="mt-4 max-w-2xl text-muted">{t.achievementsSubtitle}</p>
-        <div className="mt-8 flex gap-3">
+        <div className="mt-8 flex flex-wrap gap-2 sm:gap-3">
           <button
             onClick={() => setTimelineFilter("all")}
-            className={`rounded-full px-4 py-2 text-sm transition ${
+            className={`rounded-full px-3 py-2 text-xs transition sm:px-4 sm:text-sm ${
               timelineFilter === "all" ? "bg-sky-400 text-slate-950" : "glass-card text-muted"
             }`}
           >
@@ -587,7 +575,7 @@ export default function Home() {
           </button>
           <button
             onClick={() => setTimelineFilter("recent")}
-            className={`rounded-full px-4 py-2 text-sm transition ${
+            className={`rounded-full px-3 py-2 text-xs transition sm:px-4 sm:text-sm ${
               timelineFilter === "recent" ? "bg-green-500 text-white" : "glass-card text-muted"
             }`}
           >
@@ -595,7 +583,7 @@ export default function Home() {
           </button>
           <button
             onClick={() => setTimelineFilter("past")}
-            className={`rounded-full px-4 py-2 text-sm transition ${
+            className={`rounded-full px-3 py-2 text-xs transition sm:px-4 sm:text-sm ${
               timelineFilter === "past" ? "bg-yellow-400 text-slate-950" : "glass-card text-muted"
             }`}
           >
@@ -603,7 +591,7 @@ export default function Home() {
           </button>
           <button
             onClick={() => setTimelineFilter("korean")}
-            className={`rounded-full px-4 py-2 text-sm transition ${
+            className={`rounded-full px-3 py-2 text-xs transition sm:px-4 sm:text-sm ${
               timelineFilter === "korean" ? "bg-purple-500 text-white" : "glass-card text-muted"
             }`}
           >
@@ -611,7 +599,7 @@ export default function Home() {
           </button>
           <button
             onClick={() => setTimelineFilter("swaiit")}
-            className={`rounded-full px-4 py-2 text-sm transition ${
+            className={`rounded-full px-3 py-2 text-xs transition sm:px-4 sm:text-sm ${
               timelineFilter === "swaiit" ? "bg-red-500 text-white" : "glass-card text-muted"
             }`}
           >
