@@ -22,6 +22,7 @@ const skillsI18n = {
     aiTitle: "Artificial Intelligence & Data Science",
     webTitle: "Web & Mobile Development",
     embeddedTitle: "Embedded Systems & Robotics",
+    cyberTitle: "Cybersecurity & Networking",
     teamworkTitle: "Teamwork & Productivity",
     languagesTitle: "Language Proficiency Level",
 
@@ -36,6 +37,11 @@ const skillsI18n = {
       frameworks: "Frameworks",
       hardware: "Hardware",
       hardwareLang: "Languages for Hardware",
+      securityTools: "Security Tools",
+      networkingTools: "Networking Tools",
+      protocols: "Protocols",
+      apiTesting: "API Testing",
+      networkSkills: "Network Skills",
       versionControl: "Version Control",
       management: "Management",
       documentation: "Documentation",
@@ -56,6 +62,11 @@ const skillsI18n = {
       frameworks: "ROS 2, Mobius, oneM2M",
       hardware: "Raspberry Pi, Arduino, Velodyne Lidar",
       hardwareLang: "C , C++",
+      securityTools: "Kali Linux, Metasploit, Burp Suite, Wireshark",
+      networkingTools: "Cisco Packet Tracer, PuTTY",
+      protocols: "HTTP/HTTPS, TCP/IP",
+      apiTesting: "Postman",
+      networkSkills: "VPN Setup, Network Traffic Analysis",
       versionControl: "Git, GitHub",
       management: "Jira, Slack, Microsoft Teams",
       documentation: "Notion, Obsidian, Naver Blog",
@@ -73,6 +84,7 @@ const skillsI18n = {
     aiTitle: "인공지능 & 데이터 과학",
     webTitle: "웹 & 모바일 개발",
     embeddedTitle: "임베디드 시스템 & 로보틱스",
+    cyberTitle: "사이버 보안 & 네트워킹",
     teamworkTitle: "협업 & 생산성",
     languagesTitle: "언어 능력 수준",
 
@@ -87,6 +99,11 @@ const skillsI18n = {
       frameworks: "프레임워크",
       hardware: "하드웨어",
       hardwareLang: "하드웨어 언어",
+      securityTools: "보안 도구",
+      networkingTools: "네트워킹 도구",
+      protocols: "프로토콜",
+      apiTesting: "API 테스트",
+      networkSkills: "네트워크 역량",
       versionControl: "버전 관리",
       management: "협업 도구",
       documentation: "문서화",
@@ -107,6 +124,11 @@ const skillsI18n = {
       frameworks: "ROS 2, Mobius, oneM2M",
       hardware: "Raspberry Pi, Arduino, Velodyne Lidar",
       hardwareLang: "C , C++",
+      securityTools: "Kali Linux, Metasploit, Burp Suite, Wireshark",
+      networkingTools: "Cisco Packet Tracer, PuTTY",
+      protocols: "HTTP/HTTPS, TCP/IP",
+      apiTesting: "Postman",
+      networkSkills: "VPN 설정, 네트워크 트래픽 분석",
       versionControl: "Git, GitHub",
       management: "Jira, Slack, Microsoft Teams",
       documentation: "Notion, Obsidian, Naver Blog",
@@ -159,8 +181,8 @@ const educationTimeline = [
       ko: "학부생 인턴십"
     },
     period: {
-      en: "2025 January ~ ",
-      ko: "2025년 1월 ~ "
+      en: "2024 December ~ 2025 February",
+      ko: "2024년 12월 ~ 2025년 2월"
     }
   },
 
@@ -229,7 +251,7 @@ const educationTimeline = [
 export default function Home() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [locale, setLocale] = useState<Locale>("en");
-  const [timelineFilter, setTimelineFilter] = useState<"all" | "recent" | "past" | "korean" | "swaiit">("all");
+  const [timelineFilter, setTimelineFilter] = useState<"all" | "recent" | "past" | "korean" | "swaiit" | "mentoring">("all");
   const [isLargeText, setIsLargeText] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -264,34 +286,16 @@ export default function Home() {
   const sortedAchievements = [...achievements].sort((a, b) => (a.isoDate > b.isoDate ? -1 : 1));
   const recentAchievements = sortedAchievements.filter((item) => Number(item.isoDate.slice(0, 4)) >= 2024);
   const pastAchievements = sortedAchievements.filter((item) => Number(item.isoDate.slice(0, 4)) < 2024);
-  const koreanRelatedAchievements = sortedAchievements.filter((item) => {
-    const searchable = `${item.title.en} ${item.title.ko} ${item.org}`.toLowerCase();
-    const koreanKeywords = ["korean", "한국", "topik", "kiip", "gks", "세종", "k-book"];
-    return koreanKeywords.some((keyword) => searchable.includes(keyword));
-  });
-  const koreanRelatedIds = new Set(koreanRelatedAchievements.map((item) => item.id));
-  const nonKoreanAchievements = sortedAchievements.filter((item) => !koreanRelatedIds.has(item.id));
+  const koreanRelatedIds = new Set([2, 1, 29, 24, 25, 28, 27]);
+  const swAiItIds = new Set([3, 7, 8, 5]);
+  const mentoringIds = new Set([4, 10, 11, 20, 19, 18, 21, 17, 22]);
 
-  const swAiItAchievements = sortedAchievements.filter((item) => {
-    const searchable = `${item.title.en} ${item.title.ko} ${item.org}`.toLowerCase();
-    const techKeywords = [
-      "sw",
-      "ai",
-      "it",
-      "capstone",
-      "hackathon",
-      "project",
-      "medical it",
-      "computer",
-      "engineering",
-      "점자",
-      "eduble",
-      "braille"
-    ];
-    return techKeywords.some((keyword) => searchable.includes(keyword));
-  });
-  const swAiItIds = new Set(swAiItAchievements.map((item) => item.id));
+  const koreanRelatedAchievements = sortedAchievements.filter((item) => koreanRelatedIds.has(item.id));
+  const nonKoreanAchievements = sortedAchievements.filter((item) => !koreanRelatedIds.has(item.id));
+  const swAiItAchievements = sortedAchievements.filter((item) => swAiItIds.has(item.id));
   const nonSwAiItAchievements = sortedAchievements.filter((item) => !swAiItIds.has(item.id));
+  const mentoringAchievements = sortedAchievements.filter((item) => mentoringIds.has(item.id));
+  const nonMentoringAchievements = sortedAchievements.filter((item) => !mentoringIds.has(item.id));
   const timelineData =
     timelineFilter === "all"
       ? sortedAchievements
@@ -301,7 +305,9 @@ export default function Home() {
           ? [...pastAchievements, ...recentAchievements]
           : timelineFilter === "korean"
             ? [...koreanRelatedAchievements, ...nonKoreanAchievements]
-            : [...swAiItAchievements, ...nonSwAiItAchievements];
+            : timelineFilter === "swaiit"
+              ? [...swAiItAchievements, ...nonSwAiItAchievements]
+              : [...mentoringAchievements, ...nonMentoringAchievements];
 
   return (
     <main className="min-h-screen">
@@ -485,23 +491,40 @@ export default function Home() {
               <li><span className="text-foreground">{s.labels.officeSuites}:</span> {s.values.officeSuites}</li>
             </ul>
           </motion.article>
-        </div>
 
-        <motion.article
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: 0.1 }}
-          className="glass-card mt-6 rounded-3xl p-6"
-        >
-          <h3 className="text-xl font-semibold">{s.languagesTitle}</h3>
-          <ul className="mt-4 space-y-2 text-sm text-muted">
-            <li><span className="text-foreground">{s.labels.uzbekRussian}:</span> {s.values.uzbekRussian}</li>
-            <li><span className="text-foreground">{s.labels.english}:</span> {s.values.english}</li>
-            <li><span className="text-foreground">{s.labels.korean}:</span> {s.values.korean}</li>
-            <li><span className="text-foreground">{s.labels.frenchGerman}:</span> {s.values.frenchGerman}</li>
-          </ul>
-        </motion.article>
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.18 }}
+            className="glass-card rounded-3xl p-6"
+          >
+            <h3 className="text-xl font-semibold">{s.cyberTitle}</h3>
+            <ul className="mt-4 space-y-2 text-sm text-muted">
+              <li><span className="text-foreground">{s.labels.securityTools}:</span> {s.values.securityTools}</li>
+              <li><span className="text-foreground">{s.labels.networkingTools}:</span> {s.values.networkingTools}</li>
+              <li><span className="text-foreground">{s.labels.protocols}:</span> {s.values.protocols}</li>
+              <li><span className="text-foreground">{s.labels.apiTesting}:</span> {s.values.apiTesting}</li>
+              <li><span className="text-foreground">{s.labels.networkSkills}:</span> {s.values.networkSkills}</li>
+            </ul>
+          </motion.article>
+
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.2 }}
+            className="glass-card rounded-3xl p-6"
+          >
+            <h3 className="text-xl font-semibold">{s.languagesTitle}</h3>
+            <ul className="mt-4 space-y-2 text-sm text-muted">
+              <li><span className="text-foreground">{s.labels.uzbekRussian}:</span> {s.values.uzbekRussian}</li>
+              <li><span className="text-foreground">{s.labels.english}:</span> {s.values.english}</li>
+              <li><span className="text-foreground">{s.labels.korean}:</span> {s.values.korean}</li>
+              <li><span className="text-foreground">{s.labels.frenchGerman}:</span> {s.values.frenchGerman}</li>
+            </ul>
+          </motion.article>
+        </div>
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
@@ -605,6 +628,14 @@ export default function Home() {
           >
             {locale === "ko" ? "SW · AI · IT 성과" : "SW & AI & IT Achievements"}
           </button>
+          <button
+            onClick={() => setTimelineFilter("mentoring")}
+            className={`rounded-full px-3 py-2 text-xs transition sm:px-4 sm:text-sm ${
+              timelineFilter === "mentoring" ? "bg-orange-500 text-white" : "glass-card text-muted"
+            }`}
+          >
+            {locale === "ko" ? "멘토링 · 서포터즈" : "Mentoring & Supporter"}
+          </button>
         </div>
 
         <div className="relative mt-10">
@@ -621,24 +652,9 @@ export default function Home() {
               {timelineData.map((item) => {
                 const year = Number(item.isoDate.slice(0, 4));
                 const isRecent = year >= 2024;
-                const searchable = `${item.title.en} ${item.title.ko} ${item.org}`.toLowerCase();
-                const isKoreanRelated = ["korean", "한국", "topik", "kiip", "gks", "세종", "k-book"].some((keyword) =>
-                  searchable.includes(keyword)
-                );
-                const isSwAiItRelated = [
-                  "sw",
-                  "ai",
-                  "it",
-                  "capstone",
-                  "hackathon",
-                  "project",
-                  "medical it",
-                  "computer",
-                  "engineering",
-                  "점자",
-                  "eduble",
-                  "braille"
-                ].some((keyword) => searchable.includes(keyword));
+                const isKoreanRelated = koreanRelatedIds.has(item.id);
+                const isSwAiItRelated = swAiItIds.has(item.id);
+                const isMentoringRelated = mentoringIds.has(item.id);
                 const highlighted =
                   timelineFilter === "all"
                     ? true
@@ -648,7 +664,9 @@ export default function Home() {
                         ? !isRecent
                         : timelineFilter === "korean"
                           ? isKoreanRelated
-                          : isSwAiItRelated;
+                          : timelineFilter === "swaiit"
+                            ? isSwAiItRelated
+                            : isMentoringRelated;
                 return (
                   <article
                     key={item.id}
@@ -667,7 +685,9 @@ export default function Home() {
                                 ? "bg-yellow-400"
                                 : timelineFilter === "korean"
                                   ? "bg-purple-500"
-                                  : "bg-red-500"
+                                  : timelineFilter === "swaiit"
+                                    ? "bg-red-500"
+                                    : "bg-orange-500"
                           : "bg-border"
                       }`}
                     />

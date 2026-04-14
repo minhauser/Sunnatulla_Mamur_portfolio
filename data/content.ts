@@ -17,8 +17,8 @@ export type Achievement = {
 };
 
 export const quote = {
-  en: "I am not just a Scientist, but an Engineer who improves the world around me for the convenience of people.",
-  ko: "저는 단순한 학자가 아니라, 사람들의 편의를 위해 세상을 개선하는 엔지니어입니다."
+  en: "I aim to become not just a scholar, but an engineer who improves the world for people's convenience.",
+  ko: "저는 단순한 학자가 아니라, 사람들의 편의를 위해 세상을 개선하는 엔지니어 되고자 합니다."
 };
 
 export const projects: Project[] = [
