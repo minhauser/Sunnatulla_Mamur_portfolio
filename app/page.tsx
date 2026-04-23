@@ -212,8 +212,8 @@ const educationTimeline = [
       ko: "전공: 소프트웨어 공학"
     },
     period: {
-      en: "2017 September ~ 2019 May",
-      ko: "2017년 9월 ~ 2019년 5월"
+      en: "2017 September ~ 2020 August",
+      ko: "2017년 9월 ~ 2020년 8월"
     }
   },
   {
