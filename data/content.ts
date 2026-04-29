@@ -158,7 +158,9 @@ export const achievements: Achievement[] = [
   { id: 26, title: { en: "The 5th Martial Arts Open School in Uzbekistan", ko: "우즈베키스탄 제5회 무예 오픈스쿨" }, org: "UNESCO ICM", date: "Aug 1, 2021", isoDate: "2021-08-01" },
   { id: 27, title: { en: "2019 Korean Language Olympiad (High School) - Excellence Award", ko: "2019 한국어 올림피아드(고등부) - 우수상" }, org: "Tashkent Korean Education Center", date: "Dec 25, 2019", isoDate: "2019-12-25" },
   { id: 28, title: { en: "Korean Tour Guide Training Course - Certificate", ko: "한국어 관광통역안내 교육 과정 - 수료" }, org: "King Sejong Institute Tashkent", date: "Oct 30, 2020", isoDate: "2020-10-30" },
-  { id: 29, title: { en: "Korean Language Course (Study Abroad Class) - Certificate", ko: "한국어 과정(유학반) - 수료" }, org: "Tashkent Korean Education Center", date: "June 1, 2021", isoDate: "2021-06-01" }
+  { id: 29, title: { en: "Korean Language Course (Study Abroad Class) - Certificate", ko: "한국어 과정(유학반) - 수료" }, org: "Tashkent Korean Education Center", date: "June 1, 2021", isoDate: "2021-06-01" },
+  { id: 30, title: { en: "2026 Startup Club Idea League Competition START-UP Track 1 - Bronze", ko: "2026 학년도 창업동아리 아이디어리그 경진대회 START-UP Track 1 -동상 " }, org: "Soonchunhyang University President Song Byung-guk", date: "April 6, 2026", isoDate: "2026-04-06"  }
+
 ];
 
 export const labels = {

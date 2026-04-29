@@ -287,7 +287,7 @@ export default function Home() {
   const recentAchievements = sortedAchievements.filter((item) => Number(item.isoDate.slice(0, 4)) >= 2024);
   const pastAchievements = sortedAchievements.filter((item) => Number(item.isoDate.slice(0, 4)) < 2024);
   const koreanRelatedIds = new Set([2, 1, 29, 24, 25, 28, 27]);
-  const swAiItIds = new Set([3, 7, 8, 5]);
+  const swAiItIds = new Set([30,3, 7, 8, 5]);
   const mentoringIds = new Set([4, 10, 11, 20, 19, 18, 21, 17, 22]);
 
   const koreanRelatedAchievements = sortedAchievements.filter((item) => koreanRelatedIds.has(item.id));
