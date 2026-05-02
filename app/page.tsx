@@ -181,8 +181,8 @@ const educationTimeline = [
       ko: "학부생 인턴십"
     },
     period: {
-      en: "2024 December ~ 2025 February",
-      ko: "2024년 12월 ~ 2025년 2월"
+      en: "2025 June ~ 2025 August",
+      ko: "2025년 6월 ~ 2025년 8월"
     }
   },
 
